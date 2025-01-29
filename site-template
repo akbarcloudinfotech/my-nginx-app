@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Translator Header</title>
+    <style>
+        /* Top Header Styles */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #007BFF;
+            color: white;
+            padding: 10px 20px;
+        }
+        .translator-btn {
+            padding: 10px 20px;
+            background-color: white;
+            color: #007BFF;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .translator-btn:hover {
+            background-color: #e6e6e6;
+        }
+        .content {
+            padding: 20px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <h1>My Website</h1>
+        <button class="translator-btn" onclick="translateContent()">Switch to Arabic</button>
+    </header>
+
+    <!-- Main Content -->
+    <div class="content" id="content">
+        <p>Welcome to our website! We are glad to have you here. Feel free to explore and learn more about us.</p>
+    </div>
+
+    <!-- JavaScript for Translation -->
+    <script>
+        let isArabic = false;
+
+        function translateContent() {
+            const content = document.getElementById("content");
+            const button = document.querySelector(".translator-btn");
+
+            if (isArabic) {
+                // Switch to English
+                content.innerHTML = `
+                    <p>Welcome to our website! We are glad to have you here. Feel free to explore and learn more about us.</p>
+                `;
+                button.textContent = "Switch to Arabic";
+                document.body.style.direction = "ltr";
+                isArabic = false;
+            } else {
+                // Switch to Arabic
+                content.innerHTML = `
+                    <p>مرحبًا بكم في موقعنا! نحن سعداء بوجودكم هنا. لا تتردد في استكشاف الموقع ومعرفة المزيد عنا.</p>
+                `;
+                button.textContent = "Switch to English";
+                document.body.style.direction = "rtl";
+                isArabic = true;
+            }
+        }
+    </script>
+</body>
+</html>
